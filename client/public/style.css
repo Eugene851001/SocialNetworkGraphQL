@@ -1,0 +1,77 @@
+.grid-container {
+	display: grid;
+	background: #D3D3D3;
+	grid-template-columns: 1fr 4fr;
+	grid-template-rows: auto;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+}
+
+article {
+	background-color: #FFFFFF;
+}
+
+nav {
+	background-color: #FFFFFF;
+}
+
+.body {
+	background: #D3D3D3;
+}
+
+header {
+	text-align: center;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	background: #3cb08f;
+}
+
+footer {
+	text-align: center;
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+.posts-table {
+	text-align: center;
+	border: 1px solid grey;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.logination-form {
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.registration-form {
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.post {
+	border: 4px double  #D3D3D3;
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.add-post-form {
+	text-align: center;
+}
+
+.main-menu {
+	text-align: center;
+}
+
+.button-like {
+	margin-left: -430px;
+	background-color: green;
+}
+
+.button-unlike {
+	margin-left: -430px;
+	background-color: red;
+}
