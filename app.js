@@ -81,8 +81,8 @@ const wsServer = new ws.Server({
 
 useServer(
   {
-    schema, // from the previous step
-    roots: resolver, // from the previous step
+    schema, 
+    roots: resolver, 
     execute,
     subscribe,
   },

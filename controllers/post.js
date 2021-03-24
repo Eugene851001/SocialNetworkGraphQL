@@ -33,10 +33,10 @@ exports.createPost = function(request, postData) {
   
 		let postToSend = {
 		  postId: post._id,
-		  author: user.name,
+		  author: user,
 		  myPost: post.author._id == request.cookies.userId,
 		  description: post.description,
-		  date: post.date,
+		  date: post.date.toLocaleString('ru-RU', { year: 'numeric', month: 'numeric', day: 'numeric' }),
 		  image: 'uploads/' + post.image,
 		  likes: post.likes.length,
 		  like: post.likes.indexOf(request.cookies.userId) != -1
@@ -220,10 +220,10 @@ function showPosts(request, response) {
 			let postsToSend = posts.map( post => {
 				return {
 					postId: post._id,
-					author: post.author.name,
+					author: post.author,
 					myPost: post.author._id == request.cookies.userId,
 					description: post.description,
-					date: post.date,
+					date: post.date.toLocaleString('ru-RU', { year: 'numeric', month: 'numeric', day: 'numeric' }),
 					image: 'uploads/' + post.image,
 					likes: post.likes.length,
 					like: post.likes.indexOf(request.cookies.userId) != -1

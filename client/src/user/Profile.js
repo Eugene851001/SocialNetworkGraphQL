@@ -112,7 +112,16 @@ class Profile extends Component {
 		    <Header title={{name: "Профиль"}}/>
 	      <Nav />
 		    <article>
-			    <img src={this.state.photo} width="320" height="240"/><br></br>
+        <table>
+            <tr>
+              <td>
+                <img src={this.state.photo} width="320" height="240"/><br></br>
+              </td>
+              <td valign="top">
+                  <h2>{this.state.name}</h2>
+              </td>
+            </tr>
+          </table>
 			    {this.state.myPage ? editPhotoForm : ''}<br></br>
 			    {this.state.myPage || this.state.follow ? '' : followButton }
 			    {this.state.myPage || !this.state.follow ? '' : unfollowButton} 
@@ -122,7 +131,6 @@ class Profile extends Component {
               <td><Link to={`/Followers/${this.state.userId}`}>Подписчики</Link></td>
             </tr>
           </table>
-			    <h2>{this.state.name}</h2>
 		    </article>
 		    <Footer />
       </div>

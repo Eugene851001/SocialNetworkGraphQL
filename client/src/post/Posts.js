@@ -23,11 +23,14 @@ class Posts extends Component {
 		this.onChangeText = this.onChangeText.bind(this);
 		this.changeState = this.changeState.bind(this);
 		this.onPostCreated = this.onPostCreated.bind(this);
-		this.posts = []
+		this.posts = [];
+		this.myPost = false
     }
 	
 	onSubmit(e) {
 	  e.preventDefault();
+
+	  this.myPost = true;
 	  createPost(this.postData)
 	    .then(response => {
 		  console.log(response);
@@ -84,6 +87,8 @@ class Posts extends Component {
 			{
 			  next: (notification) => {
 				console.log(notification);
+				notification.data.postCreated.myPost = this.myPost;
+				if (this.myPost) this.myPost = false;
 				this.setState((state) => {
 					state.posts.unshift(notification.data.postCreated);
 					return {posts: state.posts}
@@ -147,7 +152,7 @@ class Posts extends Component {
 
 	componentWillUnmount() {
 		this.unsubscribePostCreated();
-	//	this.unsubscribePostDeleted();
+		this.unsubscribePostDeleted();
 	}
 
     render(){

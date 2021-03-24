@@ -1,5 +1,5 @@
-const post = require("../controllers/post")
-const user = require("../controllers/user")
+const post = require("../controllers/post");
+const user = require("../controllers/user");
 const {UPDATE_POST, CREATE_POST, DELETE_POST} = require('./constants');
 const { PubSub } = require('graphql-subscriptions');
 const {isSignedIn, getSignError } = require('../controllers/auth');
@@ -97,12 +97,6 @@ module.exports = {
     },
     
     subscription: {
-        greeting: async function* sayHiIn5Languages() {
-          for (const hi of ['Hi', 'Bonjour', 'Hola', 'Ciao', 'Zdravo']) {
-            console.log(hi);
-            yield { greeting: hi };
-          }
-        },
         postUpdated: () => pubsub.asyncIterator(UPDATE_POST),
         postCreated: () => pubsub.asyncIterator(CREATE_POST),
         postDeleted: () => pubsub.asyncIterator(DELETE_POST)
